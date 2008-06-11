@@ -54,7 +54,7 @@ class Edge
 {
 public:
 	// First vertex is the one that has this edge in adj Vector
-	Vertex	*dest;	// Destination vertex of an edge.
+	Vertex	*to;	// Destination vertex of an edge.
 	double	cost;
 
 	/**
@@ -63,7 +63,7 @@ public:
 	 *	@param Vertex*
 	 *	@param double
 	 */
-	Edge( Vertex *d = 0, double c = 0.0 ) : dest(d), cost(c) { }
+	Edge( Vertex *d = 0, double c = 0.0 ) : to(d), cost(c) { }
 
 }
 
