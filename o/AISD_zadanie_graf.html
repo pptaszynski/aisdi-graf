@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-2">
+	<TITLE>AISD zadanie Graf</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.ux.pl 2.0.4  (Win32)">
+	<META NAME="CREATED" CONTENT="20070524;22381550">
+	<META NAME="CHANGED" CONTENT="20070524;22485623">
+	<STYLE>
+	<!--
+		@page { margin-left: 2cm; margin-right: 2.45cm; margin-top: 1.5cm; margin-bottom: 1.5cm }
+		P { margin-bottom: 0.21cm; direction: ltr; color: #000000; text-align: left; widows: 2; orphans: 2 }
+		P.western { font-family: "Times New Roman", serif; font-size: 12pt; so-language: pl-PL }
+		P.cjk { font-family: "Times New Roman", serif; font-size: 12pt }
+		P.ctl { font-family: "Times New Roman", serif; font-size: 12pt; so-language: ar-SA }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="de-DE" TEXT="#000000" DIR="LTR">
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif"><FONT SIZE=4 STYLE="font-size: 16pt"><B>AISDI
+zadanie GRAF</B></FONT></FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif">Proszę napisać program, kt&oacute;ry:</FONT></P>
+<UL>
+	<LI><P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+	<FONT FACE="Arial, sans-serif">wczyta ze standardowego wejścia graf
+	skierowany</FONT></P>
+	<LI><P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+	<FONT FACE="Arial, sans-serif">policzy dwie najkr&oacute;tsze
+	ścieżki według zadanych kryteri&oacute;w, pomiędzy zadanymi parami
+	wierzchołk&oacute;w. Dla każdej pary wierzchołk&oacute;w powinny
+	zostać znalezione cztery najkr&oacute;tsze ścieżki (dwie najkr&oacute;tsze
+	wg. wag krawędzi będących odległością na płaszczyźnie pomiędzy
+	wierzchołkami połączonymi daną krawędzią oraz dwie najkr&oacute;tsze
+	&ndash; wg. wag przypisanych do krawędzi).</FONT></P>
+	<LI><P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+	<FONT FACE="Arial, sans-serif">dla każdej ze ścieżek wypisze na
+	standardowe wyjście</FONT></P>
+	<UL>
+		<UL>
+			<LI><P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+			<FONT FACE="Arial, sans-serif">długość znalezionej ścieżki</FONT></P>
+			<LI><P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+			<FONT FACE="Arial, sans-serif">znalezioną ścieżkę </FONT>
+			</P>
+		</UL>
+	</UL>
+</UL>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif">Dla wszystkich danych ułamkowych
+separatorem dziesiętnym jest '.' (kropka).</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif"><FONT SIZE=4><B>Wejście</B></FONT></FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif">Wejście składa się z trzech sekcji.</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif">W pierwszej sekcji znajduje się <I>v</I>
+linii z dwoma liczbami rzeczywistymi oznaczającymi wsp&oacute;łrzędne
+x oraz y kolejnych wierzchołk&oacute;w. </FONT>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif">Po pierwszej sekcji następuje druga
+sekcja, w kt&oacute;rej znajduje się <I>e</I> linii z dwoma
+całkowitymi liczbami nieujemnymi oraz jedna nieujemną liczbą
+rzeczywistą oznaczającymi: nr wierzchołka początkowego, końcowego
+oraz wagę krawędzi.</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif">W trzeciej sekcji znajduje się <I>w</I>
+linii z dwiema nieujemnymi liczbami całkowitymi, kt&oacute;re
+oznaczają wierzchołek początkowy i końcowy ścieżek, kt&oacute;re
+należy znaleźć.</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif">Liczby <I>v</I>, <I>e</I> oraz <I>w</I>
+należą do zbioru liczb naturalnych.</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif"><FONT SIZE=4><B>Wyjście standardowe</B></FONT></FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif">Wyjście ma zawierać <I>w*</I>8 linii.</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif">Dla każdej zadanej pary wierzchołk&oacute;w
+z trzeciej sekcji pliku wejściowego generowane są na wyjście osiem
+linii:</FONT></P>
+<OL>
+	<LI><P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+	<FONT FACE="Arial, sans-serif">Długość najkr&oacute;tszej ścieżki -
+	linia składa się z dwu nieujemnych liczb całkowitych i jednej
+	nieujemnej liczby rzeczywistej oddzielonych pojedynczym znakiem
+	<I>spacji</I>. Pierwsze dwie liczby to nr wierzchołka początkowego i
+	końcowego poszukiwanej ścieżki, trzecia liczba to długość ścieżki
+	zaokrąglona do 4 miejsc po przecinku. W przypadku, gdy brak jest
+	ścieżki łączącej wskazane wierzchołki na wyjście zostaną tylko
+	wypisane te dwa wierzchołki.</FONT></P>
+	<LI><P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+	<FONT FACE="Arial, sans-serif">Najkr&oacute;tszą ścieżkę - linia
+	składa się z <I>2+n</I> całkowitych nieujemnych liczb oddzielonych
+	pojedynczym znakiem <I>spacji</I>. Pierwsze dwie liczby to nr
+	wierzchołka początkowego i końcowego poszukiwanej ścieżki, pozostałe
+	<I>n</I> liczb to wszystkie wierzchołki znajdujące się na tej
+	ścieżce (łącznie z początkowym i&nbsp;końcowym). W przypadku gdy
+	brak jest ścieżki łączącej wskazane wierzchołki na wyjście zostaną
+	tylko wypisane te dwa wierzchołki.</FONT></P>
+	<LI><P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+	<FONT FACE="Arial, sans-serif">Długość kolejnej najkr&oacute;tszej
+	ścieżki &ndash; format jak w pkt. 1</FONT></P>
+	<LI><P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+	<FONT FACE="Arial, sans-serif">Kolejną najkr&oacute;tszą ścieżkę &ndash;
+	format jak w pkt. 2</FONT></P>
+	<LI><P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+	<FONT FACE="Arial, sans-serif">- 8. - formaty odpowiednio jak 1.-4.
+	ale dla odległości wyliczonych na podstawie wag krawędzi.</FONT></P>
+</OL>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; page-break-before: always">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif"><FONT SIZE=4><B>Przykład</B>:</FONT></FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif">Dane wejściowe (cin):</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0.2 0.1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">1.2 0.2</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">1.2 1.1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0.22 1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0 1 12.3</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0 2 10</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0 3 123.05</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">1 2 2.4</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">2 3 1.1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0 3</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">2 1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">1 2</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Arial, sans-serif">Dane wyjściowe (cout):</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0 3 0.9002</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0 3 0 3</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0 3 2.3993</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0 3 0 2 3</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0 3 11.1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0 3 0 2 3</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0 3 15.8</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">0 3 0 1 2 3</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">2 1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">2 1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">2 1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">2 1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">2 1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">2 1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">2 1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">2 1</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">1 2 0.9000</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">1 2 1 2</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">1 2</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">1 2</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">1 2 2.4</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">1 2 1 2</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">1 2</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<FONT FACE="Courier New, monospace">1 2</FONT></P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+<P LANG="pl-PL" CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">
+<BR>
+</P>
+</BODY>
+</HTML>
