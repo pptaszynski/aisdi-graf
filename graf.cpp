@@ -84,4 +84,35 @@ void Graph::printPath(int to) const {
 	cout << endl;
 }
 
+/**
+ * Method to search shortest unweighted path from from to all other vertices
+ *
+ * @param int
+ */
+void Graph::unweighted(int from) {
+	vertex_map::iterator i = vmap.find(from);
+	if (i == vmap.end() ) 
+		throw GraphException(from + " isn't vertex in this Graph");
+
+	clearAlg();
+	Vertex *first = (*i).second;
+	list<Vertex*> q;
+	q.push_back(first);
+	first->dist = 0;
+	while( !q.empty() ) {
+		Vertex *v = q.front();
+		q.pop_front();
+
+		int vadjs = v->adj.size();
+		for (int i = 0; i < vadjs; ++i) {
+			Edge e = v->adj[ i ];
+			Vertex *w = e.to;
+			if (w->dist == INFINITY) {
+				w->dist = v->dist + 1;
+				w->prev = v;
+				q.push_back(w);
+			}
+		}
+	}
+}
 
