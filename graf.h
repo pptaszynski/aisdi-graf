@@ -26,8 +26,8 @@ public:
 	/**
 	 *	Public constructor.
 	 *
-	 *	@param	int xco
-	 *	@para	int yco
+	 *	@param	int
+	 *	@para	int
 	 *
 	 */
 	Vertex ( int xco, int yco ) : x(xco), y(yco) {
@@ -60,8 +60,8 @@ public:
 	/**
 	 *	Public constructor
 	 *
-	 *	@param Vertex * d
-	 *	@param double c
+	 *	@param Vertex*
+	 *	@param double
 	 */
 	Edge( Vertex *d = 0, double c = 0.0 ) : dest(d), cost(c) { }
 
@@ -103,3 +103,4 @@ private:
 	vertex_map vmap;
 
 }
+
