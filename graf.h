@@ -16,8 +16,8 @@
 class Vertex 
 {
 public:
-	unsigned int x;		// Vertex x coordinate
-	unsigned int y;		// Vertex y cooridnate	
+	double x;		// Vertex x coordinate
+	double y;		// Vertex y cooridnate	
 	vector<Edge> adj;	// Vector of adjacent vert.
 	double	dist;		// to compute dist in finding shortest path alg.
 	Vertex	*prev;		// Previous Vertex on the path - to help print it
@@ -30,7 +30,7 @@ public:
 	 *	@para	int
 	 *
 	 */
-	Vertex ( int xco, int yco ) : x(xco), y(yco) {
+	Vertex ( double xco, double yco ) : x(xco), y(yco) {
 		reset();
 	}
 private:
@@ -104,6 +104,7 @@ public:
 	Graph() {}
 	~Graph();
 
+	void addVertex (int key, double x, double y);
 	void addEdge (int from, int to, double cost);
 	void printPath (int to) const;
 	void unweighted (int from);

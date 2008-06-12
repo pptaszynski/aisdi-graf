@@ -9,6 +9,25 @@ Graph::~Graph() {
 		delete (*i).second;
 }
 
+/**
+ * Method adds a vertex to the graph
+ *
+ * @param int
+ * @param int
+ * @param int
+ *
+ */
+void Graph::addVertex(unsigned int k, double x, double y) {
+	vertex_map::iterator i = vmap.find(k);
+
+	if (i == vmap.end() ) {
+		Vertex *new_vertex = new Vertex(x, k);
+		vmap[ k ] = new_vertex;
+		return new_vertex;
+	}
+
+	return (*i).second;
+}
 
 /**
  * getVertex method
@@ -18,8 +37,7 @@ Graph::~Graph() {
  * @param int
  * @return Vertex*
  */
-
-Graph::getVertex(int v) {
+Vertex* Graph::getVertex(int v) {
 	vertex_map::iterator i = vmap.find(v);
 
 	if (i == vmap.end() ) {
