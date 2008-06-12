@@ -1,10 +1,12 @@
 #include "graf.h"
 
+using namespace std;
+
 /**
  * Graph Destructor. Cleans the Vertex objects.
  *
  */
-Graph::~Graph() {
+ Graph::~Graph() {
 	for(vertex_map::iterator i = vmap.begin(); i != vmap.end(); ++i)
 		delete (*i).second;
 }
@@ -17,7 +19,7 @@ Graph::~Graph() {
  * @param int
  *
  */
-void Graph::addVertex(unsigned int k, double x, double y) {
+Vertex* Graph::addVertex(unsigned int k, double x, double y) {
 	vertex_map::iterator i = vmap.find(k);
 
 	if (i == vmap.end() ) {
@@ -41,7 +43,7 @@ Vertex* Graph::getVertex(int v) {
 	vertex_map::iterator i = vmap.find(v);
 
 	if (i == vmap.end() ) {
-		Vertex *new_vert = new Vertex(v);
+		Vertex *new_vert = new Vertex(0.0, 0.0);
 		vmap[ v ] = new_vert;
 		return new_vert;
 	}
@@ -78,7 +80,7 @@ void Graph::clearAlg() {
  */
 void Graph::printPath(const Vertex& to) const {
 	if (to.prev != NULL) {
-		printPath(*from.prev); 
+		printPath(*to.prev); 
 		cout << " to";
 	}
 	cout << "(" << to.x << "," << to.y << ")";
@@ -90,16 +92,16 @@ void Graph::printPath(const Vertex& to) const {
 void Graph::printPath(int to) const {
 	vertex_map::const_iterator i = vmap.find(to);
 	if (i == vmap.end() )
-		throw GraphException( "Destination vertex not found in the graph" );
+		return; //throw GraphException( "Destination vertex not found in the graph" );
 
 	const Vertex& w = *(*i).second;
-	if (w.dist == INFINITY )
-		cout << to;
+	if (w.dist == numeric_limits<double>::infinity() )
+		std::cout << to;
 	else {
-		cout << w.dist << " ";
+		std::cout << w.dist << " ";
 		printPath(w);
 	}
-	cout << endl;
+	std::cout << endl;
 }
 
 /**
@@ -109,8 +111,8 @@ void Graph::printPath(int to) const {
  */
 void Graph::unweighted(int from) {
 	vertex_map::iterator i = vmap.find(from);
-	if (i == vmap.end() ) 
-		throw GraphException(from + " isn't vertex in this Graph");
+	if (i == vmap.end() ) return; 
+		//throw GraphException(from + " isn't vertex in this Graph");
 
 	clearAlg();
 	Vertex *first = (*i).second;
@@ -125,7 +127,7 @@ void Graph::unweighted(int from) {
 		for (int i = 0; i < vadjs; ++i) {
 			Edge e = v->adj[ i ];
 			Vertex *w = e.to;
-			if (w->dist == INFINITY) {
+			if (w->dist == numeric_limits<double>::infinity()) {
 				w->dist = v->dist + 1;
 				w->prev = v;
 				q.push_back(w);
@@ -144,33 +146,33 @@ void Graph::weighted(int from) {
 	priority_queue<Path, vector<Path>, greater<Path> > pq;
 	Path vrec;
 
-	vector_map::iterator i = vmap.find(from);
+	vertex_map::iterator i = vmap.find(from);
 	if (i == vmap.end() )
-		throw GraphException(from + " isn't a vertex in this graph");
+		return; //throw GraphException(from + " isn't a vertex in this graph");
 
 	clearAlg();
 	Vertex *first = (*i).second;
 	pq.push(Path(first, 0) ); 
-	start->dist = 0;
+	first->dist = 0;
 
 	int totalVs = vmap.size();
-	for (int visitedVs = 0; visitedVs < totalVs; ++vistedVs) {
+	for (int visitedVs = 0; visitedVs < totalVs; ++visitedVs) {
 		do {
 			if (pq.empty() ) return;
 			vrec = pq.top();
 			pq.pop();
-		} while (vrec.to->scraatch != 0);
+		} while (vrec.to->scratch != 0);
 
-		Vertex *v vrec.dest;
+		Vertex *v = vrec.to;
 		v->scratch = 1;
 
 		int vadjs = v->adj.size();
 		for(int i = 0; i < vadjs; ++i) {
 			Edge e = v->adj[ i ];
-			Vertex *w = e.dest;
+			Vertex *w = e.to;
 			double costvw = e.cost;
 			if (costvw < 0) 
-				throw GraphException("Edges can't have negative cost");
+				//throw GraphException("Edges can't have negative cost");
 
 			if (w->dist > v->dist+costvw) {
 				w->dist = v->dist + costvw;

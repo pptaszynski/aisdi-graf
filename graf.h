@@ -1,6 +1,8 @@
-#include <limits.h>
+#include <math.h>
+#include <limits>
 #include <fstream>
 #include <sstream>
+#include <iostream>
 #include <map>
 #include <vector>
 #include <string>
@@ -8,10 +10,13 @@
 #include <functional>
 #include <list>
 
+using namespace std;
+
 /**
  *	A Class representing a vertex of a graph
  *
  */
+class Edge;
 
 class Vertex 
 {
@@ -33,17 +38,17 @@ public:
 	Vertex ( double xco, double yco ) : x(xco), y(yco) {
 		reset();
 	}
-private:
+
 	/**
 	 *	Method to reset fields for the algorithm
 	 *
 	 */
 	void reset() {
-		dist = INFINITY;
+		dist = numeric_limits<double>::infinity();
 		prev = NULL;
 		scratch = 0;
 	}
-}
+};
 
 /**
  *	Class representing an edge in graph
@@ -65,7 +70,7 @@ public:
 	 */
 	Edge( Vertex *d = 0, double c = 0.0 ) : to(d), cost(c) { }
 
-}
+};
 
 /**
  *	class for a priority queue for searching weighted shortest-path algorithm
@@ -86,7 +91,7 @@ public:
 	bool operator<(const Path& other) const {
 		return cost < other.cost;
 	}
-}
+};
 
 /**
  * Graph class
@@ -104,7 +109,7 @@ public:
 	Graph() {}
 	~Graph();
 
-	void addVertex (int key, double x, double y);
+	Vertex* addVertex (unsigned int key, double x, double y);
 	void addEdge (int from, int to, double cost);
 	void printPath (int to) const;
 	void unweighted (int from);
@@ -124,5 +129,5 @@ private:
 
 	vertex_map vmap;
 
-}
+};
 

@@ -1,4 +1,5 @@
 #include "graf.h"
+using namespace std;
 
 int main(int argc, char* argv[] )
 {
@@ -14,7 +15,7 @@ int main(int argc, char* argv[] )
 	}
 	
 	Graph graph;
-	cout << "Reading graph from file..." >> endl;
+	cout << "Reading graph from file..." << endl;
 	string curr_line;
 
 	//Reead vertices
@@ -26,7 +27,7 @@ int main(int argc, char* argv[] )
 		++lcount;
 	}
 	unsigned int vertidx = 0;
-	while (in_file.gcount > 0) {
+	while (in_file.gcount() > 0) {
 		double vx, vy;
 		istringstream buff(line);
 
@@ -47,7 +48,7 @@ int main(int argc, char* argv[] )
 	if (!getline(in_file, line).eof() ) {
 		++lcount;
 	}
-	while (in_file.gcount > 0) {
+	while (in_file.gcount() > 0) {
 		unsigned int v, w;
 		double cost;
 		istringstream buff(line);
@@ -57,7 +58,7 @@ int main(int argc, char* argv[] )
 		if (buff.fail() )
 			cerr << "Incorrect line in input file: " << line << endl << "On line :" << lcount << endl;
 		else {
-			graph.addEdge(v, y, cost);
+			graph.addEdge(v, w, cost);
 			++vertidx;
 		}
 		if (!getline(in_file, line).eof() ) {
@@ -69,7 +70,7 @@ int main(int argc, char* argv[] )
 	if (!getline(in_file, line).eof() ) {
 		++lcount;
 	}
-	while (in_file.gcount > 0) {
+	while (in_file.gcount() > 0) {
 		unsigned int from, to;
 		istringstream buff(line);
 		buff >> from;
@@ -77,13 +78,13 @@ int main(int argc, char* argv[] )
 		if (buff.fail() )
 			cerr << "Incorrect line in input file: " << line << endl << "On line :" << lcount << endl;
 		else {
-			try {
+			//try {
 				graph.unweighted(from);
 				graph.printPath(to);
-			}
-			catch (const GraphException& e) {
-				cerr << e.toString( ) << endl;
-			}
+			//}
+			//catch (const GraphException& e) {
+			//	cerr << e.toString( ) << endl;
+			//}
 		}
 		if (!getline(in_file, line).eof() ) {
 			++lcount;
