@@ -68,6 +68,27 @@ public:
 }
 
 /**
+ *	class for a priority queue for searching weighted shortest-path algorithm
+ *
+ */
+class Path
+{
+public:
+	Vertex *to;
+	double cost;
+
+	Path(Vertex* t = 0, double c = 0.0) : to(t), cost(c) { }
+
+	bool operator>(const Path& other) const {
+		return cost > other.cost;
+	}
+
+	bool operator<(const Path& other) const {
+		return cost < other.cost;
+	}
+}
+
+/**
  * Graph class
  *
  * @constructor	no parameteres
