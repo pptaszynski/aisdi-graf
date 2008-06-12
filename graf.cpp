@@ -116,3 +116,51 @@ void Graph::unweighted(int from) {
 	}
 }
 
+/**
+ * This method finds the weighted shortest-path using Dijkstra's algorithm
+ *
+ * @param int
+ *
+ */
+void Graph::weighted(int from) {
+	priority_queue<Path, vector<Path>, greater<Path> > pq;
+	Path vrec;
+
+	vector_map::iterator i = vmap.find(from);
+	if (i == vmap.end() )
+		throw GraphException(from + " isn't a vertex in this graph");
+
+	clearAlg();
+	Vertex *first = (*i).second;
+	pq.push(Path(first, 0) ); 
+	start->dist = 0;
+
+	int totalVs = vmap.size();
+	for (int visitedVs = 0; visitedVs < totalVs; ++vistedVs) {
+		do {
+			if (pq.empty() ) return;
+			vrec = pq.top();
+			pq.pop();
+		} while (vrec.to->scraatch != 0);
+
+		Vertex *v vrec.dest;
+		v->scratch = 1;
+
+		int vadjs = v->adj.size();
+		for(int i = 0; i < vadjs; ++i) {
+			Edge e = v->adj[ i ];
+			Vertex *w = e.dest;
+			double costvw = e.cost;
+			if (costvw < 0) 
+				throw GraphException("Edges can't have negative cost");
+
+			if (w->dist > v->dist+costvw) {
+				w->dist = v->dist + costvw;
+				w->prev = v;
+				pq.push(Path(w, w->dist) );
+			}
+		}
+	}
+}
+
+
